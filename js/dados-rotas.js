@@ -1,86 +1,82 @@
 /**
- * Banco de Dados de Rotas
+ * Banco de Dados de Rotas e Inteligência Geográfica
  */
 
 const BancoRotas = {
+    // Coordenadas Geográficas (Lat, Lon) para cálculo de distâncias inexistentes
+    coordenadas: {
+        "Rio Branco, AC": [-9.97, -67.81], "Maceió, AL": [-9.66, -35.73], "Manaus, AM": [-3.11, -60.02],
+        "Macapá, AP": [0.03, -51.06], "Salvador, BA": [-12.97, -38.50], "Fortaleza, CE": [-3.71, -38.54],
+        "Brasília, DF": [-15.79, -47.88], "Vitória, ES": [-20.31, -40.31], "Goiânia, GO": [-16.68, -49.25],
+        "São Luís, MA": [-2.53, -44.30], "Belo Horizonte, MG": [-19.91, -43.93], "Campo Grande, MS": [-20.44, -54.64],
+        "Cuiabá, MT": [-15.59, -56.09], "Belém, PA": [-1.45, -48.50], "João Pessoa, PB": [-7.11, -34.86],
+        "Recife, PE": [-8.05, -34.88], "Teresina, PI": [-5.08, -42.80], "Curitiba, PR": [-25.42, -49.27],
+        "Rio de Janeiro, RJ": [-22.90, -43.17], "Natal, RN": [-5.79, -35.20], "Porto Velho, RO": [-8.76, -63.90],
+        "Boa Vista, RR": [2.82, -60.67], "Porto Alegre, RS": [-30.03, -51.23], "Florianópolis, SC": [-27.59, -48.54],
+        "Aracaju, SE": [-10.91, -37.07], "São Paulo, SP": [-23.55, -46.63], "Palmas, TO": [-10.16, -48.33],
+        "Santos, SP": [-23.96, -46.33], "Campinas, SP": [-22.90, -47.06], "Caxias do Sul, RS": [-29.16, -51.17]
+    },
+
+    // Rotas Rodoviárias Reais (Prioridade Máxima)
     rotas: [
-        { origem: "São Paulo, SP", destino: "Rio de Janeiro, RJ", distanciaKm: 430 },
-        { origem: "São Paulo, SP", destino: "Belo Horizonte, MG", distanciaKm: 586 },
-        { origem: "Rio de Janeiro, RJ", destino: "Belo Horizonte, MG", distanciaKm: 434 },
-        { origem: "São Paulo, SP", destino: "Vitória, ES", distanciaKm: 882 },
-        { origem: "Rio de Janeiro, RJ", destino: "Vitória, ES", distanciaKm: 521 },
-        { origem: "São Paulo, SP", destino: "Campinas, SP", distanciaKm: 95 },
-        { origem: "São Paulo, SP", destino: "Santos, SP", distanciaKm: 72 },
-        { origem: "São Paulo, SP", destino: "Ribeirão Preto, SP", distanciaKm: 313 },
-        { origem: "São Paulo, SP", destino: "Sorocaba, SP", distanciaKm: 87 },
-        { origem: "Rio de Janeiro, RJ", destino: "Niterói, RJ", distanciaKm: 13 },
-        { origem: "Rio de Janeiro, RJ", destino: "Petrópolis, RJ", distanciaKm: 68 },
-        { origem: "Belo Horizonte, MG", destino: "Ouro Preto, MG", distanciaKm: 100 },
-        { origem: "Belo Horizonte, MG", destino: "Uberlândia, MG", distanciaKm: 543 },
-        { origem: "São Paulo, SP", destino: "Brasília, DF", distanciaKm: 1015 },
-        { origem: "Rio de Janeiro, RJ", destino: "Brasília, DF", distanciaKm: 1148 },
-        { origem: "Belo Horizonte, MG", destino: "Brasília, DF", distanciaKm: 716 },
-        { origem: "Goiânia, GO", destino: "Brasília, DF", distanciaKm: 209 },
-        { origem: "Curitiba, PR", destino: "Florianópolis, SC", distanciaKm: 300 },
-        { origem: "Curitiba, PR", destino: "Porto Alegre, RS", distanciaKm: 711 },
-        { origem: "Florianópolis, SC", destino: "Porto Alegre, RS", distanciaKm: 476 },
+        { origem: "São Paulo, SP", destino: "Rio de Janeiro, RJ", distanciaKm: 435 },
+        { origem: "São Paulo, SP", destino: "Belo Horizonte, MG", distanciaKm: 585 },
         { origem: "São Paulo, SP", destino: "Curitiba, PR", distanciaKm: 408 },
-        { origem: "Curitiba, PR", destino: "Foz do Iguaçu, PR", distanciaKm: 637 },
-        { origem: "Porto Alegre, RS", destino: "Caxias do Sul, RS", distanciaKm: 129 },
-        { origem: "Salvador, BA", destino: "Recife, PE", distanciaKm: 839 },
-        { origem: "Salvador, BA", destino: "Fortaleza, CE", distanciaKm: 1389 },
-        { origem: "Recife, PE", destino: "Fortaleza, CE", distanciaKm: 800 },
-        { origem: "Recife, PE", destino: "Natal, RN", distanciaKm: 286 },
-        { origem: "Fortaleza, CE", destino: "Natal, RN", distanciaKm: 537 },
-        { origem: "Salvador, BA", destino: "Aracaju, SE", distanciaKm: 356 },
-        { origem: "Recife, PE", destino: "Maceió, AL", distanciaKm: 285 },
-        { origem: "Salvador, BA", destino: "São Luís, MA", distanciaKm: 1597 },
-        { origem: "Salvador, BA", destino: "Belo Horizonte, MG", distanciaKm: 1372 },
-        { origem: "Salvador, BA", destino: "Rio de Janeiro, RJ", distanciaKm: 1649 },
-        { origem: "Salvador, BA", destino: "São Paulo, SP", distanciaKm: 1962 },
-        { origem: "Brasília, DF", destino: "Palmas, TO", distanciaKm: 973 },
-        { origem: "Brasília, DF", destino: "Belém, PA", distanciaKm: 2120 },
-        { origem: "Belém, PA", destino: "Manaus, AM", distanciaKm: 1294 },
-        { origem: "Belém, PA", destino: "São Luís, MA", distanciaKm: 806 },
-        { origem: "Brasília, DF", destino: "Cuiabá, MT", distanciaKm: 1133 },
-        { origem: "Goiânia, GO", destino: "Cuiabá, MT", distanciaKm: 934 },
-        { origem: "Campo Grande, MS", destino: "Cuiabá, MT", distanciaKm: 694 }
+        { origem: "Rio de Janeiro, RJ", destino: "Belo Horizonte, MG", distanciaKm: 434 },
+        { origem: "Brasília, DF", destino: "Goiânia, GO", distanciaKm: 209 }
     ],
 
     obterTodasCidades: function() {
-        const cidadesSet = new Set();
-        this.rotas.forEach(rota => {
-            cidadesSet.add(rota.origem);
-            cidadesSet.add(rota.destino);
-        });
-        
-        // Converte para array e ordena: Primeiro por Estado, depois por Cidade
-        return Array.from(cidadesSet).sort((a, b) => {
-            const [cidadeA, estadoA] = a.split(', ');
-            const [cidadeB, estadoB] = b.split(', ');
-            
-            // Compara estados
-            if (estadoA !== estadoB) {
-                return estadoA.localeCompare(estadoB);
-            }
-            // Se estados forem iguais, compara cidades
-            return cidadeA.localeCompare(cidadeB);
+        return Object.keys(this.coordenadas).sort((a, b) => {
+            const estadoA = a.split(', ')[1];
+            const estadoB = b.split(', ')[1];
+            if (estadoA !== estadoB) return estadoA.localeCompare(estadoB);
+            return a.split(', ')[0].localeCompare(b.split(', ')[0]);
         });
     },
 
+    /**
+     * Motor de busca híbrido: Rota Real -> Cálculo Geográfico -> Nulo
+     */
     buscarDistancia: function(origem, destino) {
-        const origemNormalizada = origem.trim().toLowerCase();
-        const destinoNormalizado = destino.trim().toLowerCase();
+        if (origem === destino) return 0;
 
-        const rota = this.rotas.find(r => {
-            const rotaOrigem = r.origem.toLowerCase();
-            const rotaDestino = r.destino.toLowerCase();
-            return (
-                (rotaOrigem === origemNormalizada && rotaDestino === destinoNormalizado) ||
-                (rotaOrigem === destinoNormalizado && rotaDestino === origemNormalizada)
-            );
-        });
+        const oNormal = origem.trim();
+        const dNormal = destino.trim();
 
-        return rota ? rota.distanciaKm : null;
+        // 1. Tenta achar rota real cadastrada (ida ou volta)
+        const rotaReal = this.rotas.find(r => 
+            (r.origem === oNormal && r.destino === dNormal) || 
+            (r.origem === dNormal && r.destino === oNormal)
+        );
+
+        if (rotaReal) return rotaReal.distanciaKm;
+
+        // 2. Se não tem rota real, calcula via Haversine (Coordenadas)
+        const coordO = this.coordenadas[oNormal];
+        const coordD = this.coordenadas[dNormal];
+
+        if (coordO && coordD) {
+            const distEstimada = this.calcularHaversine(coordO[0], coordO[1], coordD[0], coordD[1]);
+            // Multiplicador de 1.18x para converter "linha reta" em "estrada aproximada"
+            return Math.round(distEstimada * 1.18);
+        }
+
+        return null;
+    },
+
+    /**
+     * Fórmula de Haversine para calcular distância entre dois pontos no globo
+     */
+    calcularHaversine: function(lat1, lon1, lat2, lon2) {
+        const R = 6371; // Raio da Terra em km
+        const dLat = (lat2 - lat1) * Math.PI / 180;
+        const dLon = (lon2 - lon1) * Math.PI / 180;
+        const a = 
+            Math.sin(dLat/2) * Math.sin(dLat/2) +
+            Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) * 
+            Math.sin(dLon/2) * Math.sin(dLon/2);
+        const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+        return R * c;
     }
 };
