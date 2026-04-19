@@ -43,8 +43,10 @@ desafio-carbon-calculator-dio/
 
 ## 🚀 Como Executar
 
-Por ser um projeto puramente *front-end*, não há necessidade de instalação de dependências ou servidores complexos.
+O projeto está hospedado e pode ser acessado diretamente pelo link:
+👉 **[Clique aqui para acessar a Calculadora Online](https://kauavictorss.github.io/desafio-carbon-calculator-dio/)**
 
+Para rodar localmente:
 1.  Faça o clone ou download deste repositório.
 2.  Abra o arquivo `index.html` em qualquer navegador moderno (Chrome, Edge, Firefox).
 3.  Selecione uma cidade de **Origem** e uma de **Destino**.
