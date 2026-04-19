@@ -22,6 +22,7 @@ O projeto foi desenvolvido focando em performance e simplicidade, utilizando as 
 -   **HTML5**: Estrutura semântica para melhor acessibilidade.
 -   **CSS3**: Estilização moderna com variáveis (Custom Properties), Flexbox e Grid, além de animações de feedback.
 -   **JavaScript (Vanilla)**: Lógica de negócio, manipulação do DOM e cálculos matemáticos sem dependência de bibliotecas externas.
+-   **GitHub Copilot**: Ferramenta de IA parceira no desenvolvimento (Pair Programming), utilizada para geração de código, refatoração e otimização de algoritmos.
 -   **Engenharia de Prompt**: Utilizada durante todo o ciclo de desenvolvimento para refatoração, correção de bugs e implementação de algoritmos geográficos.
 
 ## 📂 Estrutura do Projeto
@@ -60,6 +61,13 @@ Por ser um projeto puramente *front-end*, não há necessidade de instalação d
 [![GitHub](https://img.shields.io/badge/-GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/kauavictorss)
 [![LinkedIn](https://img.shields.io/badge/-LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/kaua-victor-santos/)
 </div>
+
+---
+## 🎓 Certificação DIO
+
+Projeto desenvolvido como parte do Bootcamp **CI&T - Do Prompt ao Agente** da **[Digital Innovation One (DIO)](https://www.dio.me)**, no módulo de **conclusão do desafio final**.
+
+[![Certificado DIO](https://img.shields.io/badge/Certificado-DIO-ef4444?style=for-the-badge&logo=douban)](https://www.dio.me/certificate/KPOIVSU3/share)
 
 ---
 ## 📝 Licença
